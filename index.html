@@ -1,40 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model Viewer</title>
+    <title>Sepet Perfume by Zila | Agent Sah</title>
+    <link rel="icon" href="https://pbs.twimg.com/media/G9BARQaakAANsjt?format=jpg&name=tiny">
+    
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Pastikan model ada saiz untuk dipaparkan */
+        :root {
+            --primary-color: #d4a373; /* Warna gold/perfume */
+            --dark-color: #1a1a1a;
+            --light-color: #f0f0f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section with 3D */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 50px 5%;
+            background: linear-gradient(135deg, #fff 50%, #faf3dd 50%);
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-3d {
+            flex: 1;
+            min-width: 300px;
+        }
+
         model-viewer {
             width: 100%;
             height: 500px;
-            background-color: #eee;
+            background-color: transparent;
+            --poster-color: transparent;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            padding: 15px;
+            background: var(--dark-color);
+            color: white;
+        }
+
+        /* Gallery/Lifestyle Section */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0 5%;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 45%;
+            min-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 5%;
+            background: var(--light-color);
+            margin-top: 50px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2rem; }
+            .gallery img { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <model-viewer src="zila-v1.glb" 
-                  ar 
-                  ar-modes="webxr scene-viewer quick-look" 
-                  camera-controls 
-                  tone-mapping="neutral" 
-                  poster="web1.jpeg" 
-                  shadow-intensity="1">
-        
-        <div class="progress-bar hide" slot="progress-bar">
-            <div class="update-bar"></div>
+    <nav>
+        <img src="https://pbs.twimg.com/media/G9BAQJjasAAj1ux?format=jpg&name=240x240" alt="Logo" class="logo-img">
+        <div>
+            <strong>Sepet Perfume by Zila</strong>
         </div>
-        <button slot="ar-button" id="ar-button">
-            View in your space
-        </button>
-        <div id="ar-prompt">
-            <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Wangian Eksklusif, Gaya Inspirasi.</h1>
+            <p>Alami revolusi wangian dengan koleksi Sepet Perfume. Kini dalam paparan 3D interaktif untuk pengalaman luar biasa.</p>
+            <br>
+            <a href="https://wa.me/60189095639" class="btn">Beli Sekarang di WhatsApp</a>
         </div>
-    </model-viewer>
+        <div class="hero-3d">
+            <model-viewer src="zila-v1.glb" 
+                          ar 
+                          ar-modes="webxr scene-viewer quick-look" 
+                          camera-controls 
+                          tone-mapping="neutral" 
+                          poster="web1.jpeg" 
+                          shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </section>
+
+    <div class="section-title">
+        <h2>Koleksi Kami</h2>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://pbs.twimg.com/media/G9A6UAVasAA23eg?format=jpg&name=medium" alt="A45S">
+            <h3>A45S</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://pbs.twimg.com/media/G9A6MDkb0AAb8QB?format=jpg&name=medium" alt="NVX">
+            <h3>NVX</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://pbs.twimg.com/media/G9A6NoebQAAEmEt?format=jpg&name=medium" alt="RXZ">
+            <h3>RXZ</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://pbs.twimg.com/media/G9A6OkpbgAELeub?format=jpg&name=medium" alt="Y15">
+            <h3>Y15</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://pbs.twimg.com/media/G9A6Pgob0AEpplZ?format=jpg&name=medium" alt="Type R">
+            <h3>Type R</h3>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h2>Gaya Sepet Perfume</h2>
+    </div>
+    <div class="gallery">
+        <img src="https://pbs.twimg.com/media/G9A6VNsbwAA_8j1?format=jpg&name=medium" alt="Lifestyle 1">
+        <img src="https://pbs.twimg.com/media/G9A6XHNbAAABFDV?format=jpg&name=medium" alt="Lifestyle 2">
+    </div>
+
+    <section class="contact-container">
+        <div class="contact-info">
+            <h2>Hubungi Kami</h2>
+            <p>Ada sebarang pertanyaan tentang produk atau berminat untuk menjadi dropship? Hubungi Zila sekarang.</p>
+            <p style="margin-top: 20px;"><strong>No. Telefon:</strong><br>+60 18-909 5639</p>
+            <br>
+            <a href="https://wa.me/60189095639" class="btn" style="background-color: #075E54;">WhatsApp Zila</a>
+        </div>
+        <div class="contact-form">
+            <form action="#">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email (Opsional)">
+                <textarea rows="5" placeholder="Mesej anda..."></textarea>
+                <button type="submit" class="btn" style="width: 100%; background-color: var(--dark-color);">Hantar Mesej</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sepet Perfume by Zila. Semua Hak Terpelihara.</p>
+    </footer>
 
 </body>
 </html>
