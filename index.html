@@ -3,278 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sepet Perfume by Zila | Agent Sah</title>
-    <link rel="icon" href="https://pbs.twimg.com/media/G9BARQaakAANsjt?format=jpg&name=tiny">
+    <title>Sepet Perfume by Zila | Premium Collection</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #d4a373; /* Warna gold/perfume */
-            --dark-color: #1a1a1a;
-            --light-color: #f0f0f0;
+            --gold: #c5a059;
+            --dark: #0a0a0a;
+            --surface: #1a1a1a;
+            --white: #ffffff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Raleway', sans-serif;
         }
 
         body {
-            background-color: #fff;
-            color: var(--dark-color);
-            line-height: 1.6;
+            background-color: var(--dark);
+            color: var(--white);
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--gold);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-img {
-            height: 60px;
-            border-radius: 50%;
+        .nav-logo {
+            height: 50px;
         }
 
-        /* Hero Section with 3D */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            background: var(--gold);
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: var(--dark);
+            font-weight: bold;
+        }
+
+        /* Hero Section */
         .hero {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 90vh;
             align-items: center;
-            padding: 50px 5%;
-            background: linear-gradient(135deg, #fff 50%, #faf3dd 50%);
+            padding: 0 5%;
         }
 
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            color: var(--dark-color);
-            margin-bottom: 20px;
-        }
-
-        .hero-3d {
-            flex: 1;
-            min-width: 300px;
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--gold);
+            line-height: 1.1;
         }
 
         model-viewer {
             width: 100%;
-            height: 500px;
-            background-color: transparent;
+            height: 600px;
             --poster-color: transparent;
         }
 
-        /* Section Title */
+        /* Product Section */
         .section-title {
             text-align: center;
-            margin: 50px 0;
+            padding: 80px 0 40px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            color: var(--gold);
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            display: inline-block;
-            border-bottom: 3px solid var(--primary-color);
-        }
-
-        /* Product Grid */
-        .product-grid {
+        .product-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             padding: 0 5%;
-            margin-bottom: 50px;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+        .card {
+            background: var(--surface);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 2px;
+            transition: 0.4s;
             text-align: center;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
         }
 
-        .product-card img {
+        .card img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
+            margin-bottom: 20px;
         }
 
-        .product-card h3 {
-            padding: 15px;
-            background: var(--dark-color);
-            color: white;
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
         }
 
-        /* Gallery/Lifestyle Section */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            padding: 0 5%;
-            justify-content: center;
-        }
-
-        .gallery img {
-            width: 45%;
-            min-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 50px 5%;
-            background: var(--light-color);
-            margin-top: 50px;
-        }
-
-        .contact-info, .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .btn {
-            background: #25D366; /* WhatsApp Green */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
+        .btn-add {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            width: 100%;
+            transition: 0.3s;
         }
 
-        footer {
-            text-align: center;
+        .btn-add:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* Floating Cart Drawer */
+        #cart-drawer {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background: var(--surface);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            z-index: 2000;
             padding: 30px;
-            background: var(--dark-color);
+            transition: 0.5s;
+        }
+
+        #cart-drawer.active { right: 0; }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .btn-checkout {
+            background: #25D366;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            padding: 100px 5%;
+            background: #0f0f0f;
+            margin-top: 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #222;
+            border: 1px solid #444;
             color: white;
         }
 
         @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2rem; }
-            .gallery img { width: 100%; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <img src="https://pbs.twimg.com/media/G9BAQJjasAAj1ux?format=jpg&name=240x240" alt="Logo" class="logo-img">
-        <div>
-            <strong>Sepet Perfume by Zila</strong>
+        <img src="https://pbs.twimg.com/media/G9BESQDb0AMAoy2?format=png&name=240x240" alt="Logo" class="nav-logo">
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 Troli (<span id="cart-count">0</span>)
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-text">
-            <h1>Wangian Eksklusif, Gaya Inspirasi.</h1>
-            <p>Alami revolusi wangian dengan koleksi Sepet Perfume. Kini dalam paparan 3D interaktif untuk pengalaman luar biasa.</p>
-            <br>
-            <a href="https://wa.me/60189095639" class="btn">Beli Sekarang di WhatsApp</a>
+        <div class="hero-content">
+            <h1>Sepet Perfume <br><span style="color:white; font-size: 0.5em;">By Zila</span></h1>
+            <p style="margin: 20px 0; font-size: 1.2rem; opacity: 0.8;">Definisi kemewahan dalam setiap titisan. Inspirasi gaya hidup moden.</p>
         </div>
-        <div class="hero-3d">
-            <model-viewer src="zila-v1.glb" 
-                          ar 
-                          ar-modes="webxr scene-viewer quick-look" 
-                          camera-controls 
-                          tone-mapping="neutral" 
-                          poster="web1.jpeg" 
-                          shadow-intensity="1">
-            </model-viewer>
-        </div>
+        <model-viewer src="zila-v1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="web1.jpeg" shadow-intensity="1" auto-rotate></model-viewer>
     </section>
 
-    <div class="section-title">
-        <h2>Koleksi Kami</h2>
-    </div>
-
-    <div class="product-grid">
-        <div class="product-card">
+    <h2 class="section-title">EXCLUSIVE COLLECTION</h2>
+    
+    <div class="product-container">
+        <div class="card">
             <img src="https://pbs.twimg.com/media/G9A6UAVasAA23eg?format=jpg&name=medium" alt="A45S">
             <h3>A45S</h3>
+            <button class="btn-add" onclick="addToCart('A45S')">Tambah ke Troli</button>
         </div>
-        <div class="product-card">
+        <div class="card">
             <img src="https://pbs.twimg.com/media/G9A6MDkb0AAb8QB?format=jpg&name=medium" alt="NVX">
             <h3>NVX</h3>
+            <button class="btn-add" onclick="addToCart('NVX')">Tambah ke Troli</button>
         </div>
-        <div class="product-card">
+        <div class="card">
             <img src="https://pbs.twimg.com/media/G9A6NoebQAAEmEt?format=jpg&name=medium" alt="RXZ">
             <h3>RXZ</h3>
+            <button class="btn-add" onclick="addToCart('RXZ')">Tambah ke Troli</button>
         </div>
-        <div class="product-card">
+        <div class="card">
             <img src="https://pbs.twimg.com/media/G9A6OkpbgAELeub?format=jpg&name=medium" alt="Y15">
             <h3>Y15</h3>
-        </div>
-        <div class="product-card">
-            <img src="https://pbs.twimg.com/media/G9A6Pgob0AEpplZ?format=jpg&name=medium" alt="Type R">
-            <h3>Type R</h3>
+            <button class="btn-add" onclick="addToCart('Y15')">Tambah ke Troli</button>
         </div>
     </div>
 
-    <div class="section-title">
-        <h2>Gaya Sepet Perfume</h2>
-    </div>
-    <div class="gallery">
-        <img src="https://pbs.twimg.com/media/G9A6VNsbwAA_8j1?format=jpg&name=medium" alt="Lifestyle 1">
-        <img src="https://pbs.twimg.com/media/G9A6XHNbAAABFDV?format=jpg&name=medium" alt="Lifestyle 2">
-    </div>
-
-    <section class="contact-container">
-        <div class="contact-info">
-            <h2>Hubungi Kami</h2>
-            <p>Ada sebarang pertanyaan tentang produk atau berminat untuk menjadi dropship? Hubungi Zila sekarang.</p>
-            <p style="margin-top: 20px;"><strong>No. Telefon:</strong><br>+60 18-909 5639</p>
-            <br>
-            <a href="https://wa.me/60189095639" class="btn" style="background-color: #075E54;">WhatsApp Zila</a>
-        </div>
-        <div class="contact-form">
-            <form action="#">
-                <input type="text" placeholder="Nama Anda" required>
-                <input type="email" placeholder="Email (Opsional)">
-                <textarea rows="5" placeholder="Mesej anda..."></textarea>
-                <button type="submit" class="btn" style="width: 100%; background-color: var(--dark-color);">Hantar Mesej</button>
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div>
+                <h2 style="font-family: 'Cinzel'; color: var(--gold);">HUBUNGI KAMI</h2>
+                <p>Mempunyai soalan? Tinggalkan mesej anda di sini.</p>
+                <br>
+                <p>📍 Agent Sah Sepet Perfume</p>
+                <p>📞 +60 18-909 5639</p>
+            </div>
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Nama Anda" required>
+                <textarea id="contactMsg" rows="4" placeholder="Mesej..."></textarea>
+                <button type="button" class="btn-add" onclick="sendInquiry()">Hantar Pertanyaan</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Sepet Perfume by Zila. Semua Hak Terpelihara.</p>
-    </footer>
+    <div id="cart-drawer">
+        <h2 style="font-family: 'Cinzel'; border-bottom: 1px solid var(--gold); padding-bottom: 10px;">Troli Anda</h2>
+        <div id="cart-items-list" style="margin-top: 20px;"></div>
+        <div id="cart-empty" style="text-align: center; margin-top: 50px; opacity: 0.5;">Troli kosong</div>
+        <button class="btn-checkout" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+        <button class="btn-add" style="margin-top: 10px;" onclick="toggleCart()">Tutup</button>
+    </div>
 
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('active');
+        }
+
+        function addToCart(name) {
+            cart.push(name);
+            updateCartUI();
+            // Optional: Auto open cart when adding
+            // toggleCart(); 
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const count = document.getElementById('cart-count');
+            const emptyMsg = document.getElementById('cart-empty');
+            
+            count.innerText = cart.length;
+            list.innerHTML = "";
+            
+            if(cart.length > 0) {
+                emptyMsg.style.display = "none";
+                cart.forEach((item, index) => {
+                    list.innerHTML += `<div class="cart-item"><span>${item}</span><span style="color:red; cursor:pointer;" onclick="removeItem(${index})">Hapus</span></div>`;
+                });
+            } else {
+                emptyMsg.style.display = "block";
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) return alert("Troli anda kosong!");
+            
+            let message = "Salam Zila, saya berminat untuk beli:\n\n";
+            cart.forEach((item, i) => {
+                message += `${i+1}. ${item}\n`;
+            });
+            message += "\nBoleh bantu saya proses order ini?";
+            
+            const url = `https://wa.me/60189095639?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function sendInquiry() {
+            const name = document.getElementById('contactName').value;
+            const msg = document.getElementById('contactMsg').value;
+            if(!name) return alert("Sila masukkan nama anda");
+            
+            const fullMsg = `Salam Zila, saya ${name}.\n\n${msg}`;
+            const url = `https://wa.me/60189095639?text=${encodeURIComponent(fullMsg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
