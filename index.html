@@ -3,181 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sepet Perfume by Zila | Premium Fragrance</title>
-       <link rel="icon" href="https://pbs.twimg.com/media/G9BARQaakAANsjt?format=jpg&name=tiny">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sepet Perfume by Zila | Premium Collection</title>
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --gold: #d4af37;
-            --black: #1a1a1a;
+            --gold: #c5a059;
+            --dark: #0a0a0a;
+            --surface: #1a1a1a;
             --white: #ffffff;
-            --gray: #f4f4f4;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--black); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Raleway', sans-serif; }
+        body { background-color: var(--dark); color: var(--white); overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Header & Logo */
-        header { background: var(--black); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        header img { width: 80px; border-radius: 50%; border: 2px solid var(--gold); }
-        header h1 { color: var(--gold); font-size: 1.2rem; margin-top: 10px; letter-spacing: 2px; }
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--gold); position: sticky; top: 0; z-index: 1000;
+        }
+        .nav-logo { height: 50px; border-radius: 50%; border: 1px solid var(--gold); }
 
-        /* Hero Section */
+        /* HERO SECTION - REAMPED 3D PRESENTATION */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://pbs.twimg.com/media/G9BJ6kRb0AYBno2?format=jpg&name=small');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+            display: grid; grid-template-columns: 1.2fr 0.8fr;
+            min-height: 95vh; align-items: center; padding: 0 5%;
+            background: radial-gradient(circle at 70% 50%, rgba(197, 160, 89, 0.15), transparent 50%);
         }
-        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; }
-        .hero-content p { font-size: 1.1rem; letter-spacing: 1px; }
+
+        .hero-content h1 { font-family: 'Cinzel', serif; font-size: 4.5rem; color: var(--gold); line-height: 1; }
+        
+        /* 3D Model Styling */
+        .model-container {
+            position: relative; width: 100%; height: 600px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        model-viewer {
+            width: 100%; height: 100%;
+            --poster-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.3));
+        }
+
+        /* Ambient Glow Behind Model */
+        .model-glow {
+            position: absolute; width: 300px; height: 300px;
+            background: var(--gold); filter: blur(150px);
+            opacity: 0.2; border-radius: 50%; z-index: -1;
+        }
 
         /* Product Section */
-        .section-title { text-align: center; margin: 50px 0; font-family: 'Playfair Display', serif; font-size: 2.5rem; }
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 0 10%;
-            margin-bottom: 50px;
-        }
+        .section-title { text-align: center; padding: 80px 0 40px; font-family: 'Cinzel', serif; color: var(--gold); }
+        .product-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5%; }
+
         .card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--surface); border: 1px solid #333; padding: 20px;
+            border-radius: 10px; transition: 0.4s; text-align: center;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .card h3 { margin-bottom: 15px; font-weight: 600; }
-        .btn-add {
-            background: var(--black);
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            width: 100%;
-        }
-        .btn-add:hover { background: var(--gold); color: white; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        
+        .price-tag { color: var(--gold); font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; display: block; }
 
-        /* Cart Floating Button */
-        .cart-status {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
+        .btn-group { display: flex; gap: 10px; }
+        .btn-small { flex: 1; background: transparent; color: var(--white); border: 1px solid #444; padding: 8px; cursor: pointer; font-size: 0.8rem; }
+        .btn-large { flex: 1.5; background: var(--gold); color: var(--dark); border: none; padding: 8px; cursor: pointer; font-weight: bold; }
+
+        /* FLOATING MINIMIZABLE CART */
+        #cart-system {
+            position: fixed; bottom: 20px; right: 20px;
+            width: 320px; background: var(--surface);
+            border: 1px solid var(--gold); border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 2000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Contact Section */
-        .contact { background: var(--gray); padding: 80px 10%; text-align: center; }
-        .footer { background: var(--black); color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
+        #cart-system.minimized { height: 60px; width: 200px; overflow: hidden; }
+
+        .cart-header {
+            padding: 15px; background: var(--gold); color: var(--dark);
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; border-radius: 10px 10px 0 0; font-weight: bold;
+        }
+
+        .cart-body { padding: 20px; max-height: 400px; overflow-y: auto; }
+        .cart-item { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        
+        .total-price { border-top: 2px solid var(--gold); margin-top: 15px; padding-top: 10px; font-weight: bold; color: var(--gold); text-align: right; }
+
+        .btn-checkout {
+            background: #25D366; color: white; width: 100%; padding: 12px;
+            border: none; border-radius: 5px; margin-top: 15px; cursor: pointer; font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content h1 { font-size: 3rem; }
+            .model-container { height: 400px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="https://pbs.twimg.com/media/G9BIgmEb0AA8p37?format=png&name=120x120" alt="Sepet Perfume Logo">
-    <h1>SEPET PERFUME BY ZILA</h1>
-</header>
+    <nav>
+        <img src="https://pbs.twimg.com/media/G9BESQDb0AMAoy2?format=png&name=240x240" alt="Logo" class="nav-logo">
+        <div style="font-family: 'Cinzel'; color: var(--gold); font-weight: bold;">SEPET PERFUME</div>
+    </nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <h2>Keharuman Premium</h2>
-        <p>Ekspresi identiti anda melalui wangian eksklusif.</p>
-    </div>
-</section>
-
-<h2 class="section-title">Koleksi Kami</h2>
-<div class="product-container">
-    <div class="card">
-        <img src="https://pbs.twimg.com/media/G9A6UAVasAA23eg?format=jpg&name=medium" alt="A45S">
-        <h3>A45S</h3>
-        <button class="btn-add" onclick="addToCart('A45S')">Tambah ke Troli</button>
-    </div>
-    <div class="card">
-        <img src="https://pbs.twimg.com/media/G9A6MDkb0AAb8QB?format=jpg&name=medium" alt="NVX">
-        <h3>NVX</h3>
-        <button class="btn-add" onclick="addToCart('NVX')">Tambah ke Troli</button>
-    </div>
-    <div class="card">
-        <img src="https://pbs.twimg.com/media/G9A6NoebQAAEmEt?format=jpg&name=medium" alt="RXZ">
-        <h3>RXZ</h3>
-        <button class="btn-add" onclick="addToCart('RXZ')">Tambah ke Troli</button>
-    </div>
-    <div class="card">
-        <img src="https://pbs.twimg.com/media/G9A6OkpbgAELeub?format=jpg&name=medium" alt="Y15">
-        <h3>Y15</h3>
-        <button class="btn-add" onclick="addToCart('Y15')">Tambah ke Troli</button>
-    </div>
-</div>
-
-<section class="contact" id="contact">
-    <h3>Hubungi Kami</h3>
-    <p>Ada sebarang pertanyaan? Klik butang di bawah untuk berbual dengan kami.</p>
-    <br>
-    <button class="btn-add" style="width: auto;" onclick="window.location.href='https://wa.me/60123456789'">WhatsApp Admin</button>
-</section>
-
-<div class="cart-status" id="cartStatus" onclick="sendToWhatsapp()">
-    🛒 <span id="cartCount">0</span> Produk | Checkout ke WhatsApp
-</div>
-
-<footer class="footer">
-    &copy; 2024 Sepet Perfume by Zila. All Rights Reserved.
-</footer>
-
-<script>
-    let cart = [];
-
-    function addToCart(productName) {
-        cart.push(productName);
-        updateCartUI();
-        alert(productName + " telah ditambah ke troli!");
-    }
-
-    function updateCartUI() {
-        const cartStatus = document.getElementById('cartStatus');
-        const cartCount = document.getElementById('cartCount');
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ELEGANCE <br><span style="color:white; font-size: 0.4em;">REDEFINED</span></h1>
+            <p style="margin: 20px 0; font-size: 1.1rem; opacity: 0.7; max-width: 500px;">
+                Alami keajaiban bauan premium dalam dimensi baru. Putar, zum, dan hayati kualiti Sepet Perfume by Zila.
+            </p>
+            <a href="#koleksi" class="btn-large" style="text-decoration: none; padding: 15px 40px; display: inline-block;">LIHAT KOLEKSI</a>
+        </div>
         
-        if (cart.length > 0) {
-            cartStatus.style.display = 'block';
-            cartCount.innerText = cart.length;
+        <div class="model-container">
+            <div class="model-glow"></div>
+            <model-viewer 
+                src="zila-v1.glb" 
+                ar ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                auto-rotate 
+                rotation-speed="200%"
+                shadow-intensity="2" 
+                shadow-softness="1"
+                exposure="1.2"
+                environment-image="neutral"
+                poster="web1.jpeg">
+            </model-viewer>
+        </div>
+    </section>
+
+    <div id="koleksi" class="section-title">
+        <h2>EXCLUSIVE SELECTION</h2>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Botol Besar: RM50 | Botol Kecil: RM15</p>
+    </div>
+    
+    <div class="product-container">
+        <script>
+            const products = [
+                { name: 'A45S', img: 'https://pbs.twimg.com/media/G9A6UAVasAA23eg?format=jpg&name=medium' },
+                { name: 'NVX', img: 'https://pbs.twimg.com/media/G9A6MDkb0AAb8QB?format=jpg&name=medium' },
+                { name: 'RXZ', img: 'https://pbs.twimg.com/media/G9A6NoebQAAEmEt?format=jpg&name=medium' },
+                { name: 'Y15', img: 'https://pbs.twimg.com/media/G9A6OkpbgAELeub?format=jpg&name=medium' },
+                { name: 'Type R', img: 'https://pbs.twimg.com/media/G9A6Pgob0AEpplZ?format=jpg&name=medium' }
+            ];
+
+            products.forEach(p => {
+                document.write(`
+                    <div class="card">
+                        <img src="${p.img}" alt="${p.name}">
+                        <h3>${p.name}</h3>
+                        <span class="price-tag">RM15 - RM50</span>
+                        <div class="btn-group">
+                            <button class="btn-small" onclick="addToCart('${p.name}', 15, 'Kecil')">+ Kecil</button>
+                            <button class="btn-large" onclick="addToCart('${p.name}', 50, 'Besar')">+ Besar</button>
+                        </div>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <div id="cart-system" class="minimized">
+        <div class="cart-header" onclick="toggleCart()">
+            <span>🛒 Troli (<span id="cart-count">0</span>)</span>
+            <span id="cart-arrow">▲</span>
+        </div>
+        <div class="cart-body">
+            <div id="cart-items-list"></div>
+            <div class="total-price">JUMLAH: RM <span id="cart-total">0</span></div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">Selesaikan Pesanan</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let isMinimized = true;
+
+        function toggleCart() {
+            const cartEl = document.getElementById('cart-system');
+            const arrow = document.getElementById('cart-arrow');
+            isMinimized = !isMinimized;
+            
+            if(isMinimized) {
+                cartEl.classList.add('minimized');
+                arrow.innerText = "▲";
+            } else {
+                cartEl.classList.remove('minimized');
+                arrow.innerText = "▼";
+            }
         }
-    }
 
-    function sendToWhatsapp() {
-        const phoneNumber = "60123456789"; // GANTI DENGAN NOMBOR WHATSAPP ANDA
-        let message = "Salam Zila, saya berminat untuk beli perfume berikut:%0a%0a";
-        
-        // Mengira jumlah setiap produk
-        const counts = {};
-        cart.forEach((x) => { counts[x] = (counts[x] || 0) + 1; });
-        
-        for (const item in counts) {
-            message += `- ${item} (${counts[item]} unit)%0a`;
+        function addToCart(name, price, size) {
+            cart.push({ name, price, size });
+            if(isMinimized) toggleCart(); // Auto open when add
+            updateCartUI();
         }
-        
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
-    }
-</script>
 
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const count = document.getElementById('cart-count');
+            const totalDisplay = document.getElementById('cart-total');
+            
+            count.innerText = cart.length;
+            list.innerHTML = "";
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                total += item.price;
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} (${item.size})</span>
+                        <span>RM${item.price} <b style="color:red; cursor:pointer;" onclick="removeItem(${index})">×</b></span>
+                    </div>`;
+            });
+            totalDisplay.innerText = total;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) return alert("Troli kosong!");
+            let total = 0;
+            let message = "Salam Zila, saya nak order Sepet Perfume:\n\n";
+            cart.forEach((item, i) => {
+                message += `${i+1}. ${item.name} [${item.size}] - RM${item.price}\n`;
+                total += item.price;
+            });
+            message += `\n*TOTAL: RM${total}*`;
+            window.open(`https://wa.me/60189095639?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
 </body>
 </html>
